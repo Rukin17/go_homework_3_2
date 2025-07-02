@@ -1,4 +1,4 @@
-package data
+package db
 
 var Cities = []string{
 	"Москва",

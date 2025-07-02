@@ -1,17 +1,18 @@
-package data
+package crud
 
 import (
+	"go_homework_3_2/db"
 	"strings"
 )
 
 func AddCity(cityName string) {
-	Cities = append(Cities, cityName)
+	db.Cities = append(db.Cities, cityName)
 }
 
 func SearchCity(cityName string) bool {
 	cityName = strings.ToLower(cityName)
 	flag := false
-	for _, city := range Cities {
+	for _, city := range db.Cities {
 		if cityName == strings.ToLower(city) {
 			flag = true
 		}
@@ -22,9 +23,9 @@ func SearchCity(cityName string) bool {
 func RemoveCity(cityName string) bool {
 	cityName = strings.ToLower(cityName)
 	flag := false
-	for i, city := range Cities {
+	for i, city := range db.Cities {
 		if cityName == strings.ToLower(city) {
-			Cities = append(Cities[:i], Cities[i+1:]...)
+			db.Cities = append(db.Cities[:i], db.Cities[i+1:]...)
 			flag = true
 		}
 	}
